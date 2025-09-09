@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Koca58 | Project Portfolio</title>
+	<link rel="canonical" href="https://hardware7253.github.io/WebTest/">
+	<link rel='alternate' type='application/rss+xml' title="Project Portfolio RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel="icon" href="/site.ico">
+	<meta name="description" content="A split mechanical keyboard design">
+	<meta name="keywords" content="Personal Projects, Products">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1 id="tag_Koca58">Koca58</h1></header>
+<article>
+
+<div id="backcontainer">
+  <a href="/WebTest/">
+    <div id="backbtn">&lt; Back</div>
+  </a>
+</div>
+
+
+<p>The Koca58 is a split mechanical keyboard design based on the Lily58; heavy modifications were made from the original to help this version reach a lower price point and have a more durable design. The Lily58 and many other split keyboards designed for hobbyists require microcontroller development boards to be soldered to unpopulated PCBs. This approach requires the user to be comfortable soldering and is more expensive. Instead, the Koca58 uses inexpensive surface mount components that don&rsquo;t need to be populated by hand. Lily58 surface mount boards do exist, but those use RP2040 microcontrollers. I switched to an STM32F103 chip for my board because they don&rsquo;t need external flash like the RP2040 (cheaper). Early prototypes of the Koca58 used a 3.5mm TRRS connector, but I switched to RJ45 to prevent hotplugging issues that many split keyboards with TRRS connectors are plagued with.</p>
+<p>The design uses a direct matrix for its keyswitches, meaning each switch gets its own pin on the microcontroller. Initially, this was chosen to avoid the use of key matrix diodes on the bottom of the PCB so double-sided PCBA wouldn&rsquo;t be necessary. Later on, I realised that getting the rear hot-swap sockets soldered by the PCBA company would be more economical than manual assembly. So I&rsquo;ve kept the direct matrix part of the design so the same firmware can be used for all board revisions. This way I can sell some of the prototype boards without having to maintain a separate firmware version. The direct matrix led to some unideal PCB routing, but it was worth it to not turn half my prototypes into bricks.</p>
+<p>The case was designed in OnShape and features flexible mounting points to give a softer typing feel. There is also a flexible cutout so the MCU reset button can easily be pressed with the case installed.</p>
+<p>Like many other mechanical keyboards, the Koca58 runs the QMK firmware. The firmware files have been merged into the <a href="https://github.com/qmk/qmk_firmware/tree/master/keyboards/koca58">QMK GitHub repo.</a></p>
+<div class="gallery">
+  
+    <img src="/Koca58/CaseBottom.png"loading="lazy"
+    >
+    <img src="/Koca58/CaseTop.png"loading="lazy"
+    >
+    <img src="/Koca58/Prototype.jpg"loading="lazy"
+    >
+
+</div>
+
+
+
+
+
+
+	<div class="ghlink">
+		<a href="https://github.com/Hardware7253/Koca58">Project GitHub Link</a>
+	</div>
+
+
+
+	<div style="clear:both" class=taglist>Related<br><a id="tag_personal projects" href="https://hardware7253.github.io/tags/personal-projects">Personal Projects</a> &middot; <a id="tag_products" href="https://hardware7253.github.io/tags/products">Products</a></div>
+
+	
+</article>
+</main>
+
+<footer>
+	
+		<a href="/">Return Home</a>
+	
+</footer>
+
+</body>
+</html>

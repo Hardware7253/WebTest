@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Electronic Chessboard | Project Portfolio</title>
+	<link rel="canonical" href="https://hardware7253.github.io/WebTest/">
+	<link rel='alternate' type='application/rss+xml' title="Project Portfolio RSS" href='/index.xml'>
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	<link rel="icon" href="/site.ico">
+	<meta name="description" content="A chessboard with a built-in chess algorithm to play against">
+	<meta name="keywords" content="Personal Projects, Prototypes">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+	<meta charset="utf-8">
+</head>
+<body>
+<main>
+<header><h1 id="tag_Electronic Chessboard">Electronic Chessboard</h1></header>
+<article>
+
+<div id="backcontainer">
+  <a href="/WebTest/">
+    <div id="backbtn">&lt; Back</div>
+  </a>
+</div>
+
+
+<p>This board uses hall-effect sensors to detect the position of all the pieces on the board. Each piece isn&rsquo;t individually identifiable; the type of each piece is tracked as they move out from their starting position. The piece positions are read by the chess bot, which runs locally on the STM32F103Cx MCU. The bot controls one team, while the player controls the other. LEDs are used to indicate the chess bot&rsquo;s moves, while the player&rsquo;s moves are read by the hall-effect sensors.</p>
+<p>The chess bot was initially written in Rust to run on a PC; this was done to make debugging and testing easier. Then, once the bot was done, it could be ported to run on the embedded hardware. To do this, I simply removed the unit tests and features that required heap memory allocation, such as vectors and hashmaps. The rest of the code that runs on the MCU reads the physical board and handles the UI.</p>
+<p>Each position on the chessboard has its own hall-effect sensor and LED for reading piece positions and indicating moves. To make these 128 inputs/outputs more manageable, the LEDs were connected in a grid. Then the rows and columns had their own multiplexer IC such that the MUX input bits could be used as x and y coordinates. The hall-effect sensors used a similar approach, except each sensor was connected straight to a MUX; no grid was used. The multiplexers for the hall sensors allow any of the 64 sensors to be connected to a single pin which is read by the microcontroller. Finally, the MUX inputs were connected to shift registers to reduce the number of pins required to select an LED or hall sensor.</p>
+<div class="gallery">
+  
+    <img src="/ElectronicChessBoard/Board.jpg"loading="lazy"
+    >
+    <video controls 
+    	
+    	
+    	 title="Algorithm indicating the move it wants to make"
+    	loading="lazy"
+    >
+    <source src="/ElectronicChessBoard/ComputerMove.mp4">
+    </video>
+    
+
+
+</div>
+
+
+
+
+
+
+	<div class="ghlink">
+		<a href="https://github.com/Hardware7253/ElectronicChessBoard">Project GitHub Link</a>
+	</div>
+
+
+
+	<div style="clear:both" class=taglist>Related<br><a id="tag_personal projects" href="https://hardware7253.github.io/tags/personal-projects">Personal Projects</a> &middot; <a id="tag_prototypes" href="https://hardware7253.github.io/tags/prototypes">Prototypes</a></div>
+
+	
+</article>
+</main>
+
+<footer>
+	
+		<a href="/">Return Home</a>
+	
+</footer>
+
+</body>
+</html>

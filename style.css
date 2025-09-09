@@ -1,0 +1,160 @@
+
+:root {
+  --bg-color: #272729;
+  --text-color: #d1d1d1;
+  --title-color: #3a6140;
+
+  --title-color-light1: color-mix(in srgb, var(--title-color), white 20%);
+  --title-color-light2: color-mix(in srgb, var(--title-color), white 50%);
+  --title-color-dark1: color-mix(in srgb, var(--title-color), black 10%);
+  --title-color-dark2: color-mix(in srgb, var(--title-color), black 20%);
+
+  --font-family: 'Courier New', Courier, monospace;
+}
+
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  font-family: var(--font-family);
+}
+
+
+p {
+  margin-bottom: 1.5rem; 
+  /* justify-self: center; */
+  /* max-width: 80%; */
+}
+
+.summary {
+  max-width: 100%;
+}
+
+a {
+    color: var(--link-color)
+}
+
+a:hover {
+  color: var(--title-color-light2);
+}
+
+a:active {
+  color: var(--title-color-light1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--title-color);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+main {
+	margin: auto;
+}
+
+header h1 {
+	font-size: 50px;
+	text-align: center ;
+	margin-bottom: 2rem;
+}
+
+footer {
+	text-align: center ;
+	clear: both ;
+  margin-top: 2rem;
+}
+
+.ghlink {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.taglist {
+	text-align: center ;
+	clear: both;
+  margin-top: 2rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 400px));
+  justify-content: center;
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.container > div {
+  background-color: #1e1e1f;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.container img {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+
+@media (min-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(0, 30%)); 
+  }
+
+  .gallery{
+    grid-template-columns: repeat(auto-fit, minmax(0, 30%)); 
+  }
+}
+
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
+/* For NEXTPREV.HTML */
+#nextprev {
+	/* The container for both the previous and next articles. */
+}
+
+#backcontainer {
+  margin-bottom: 2rem;
+}
+
+#prevart {
+	float: left ;
+	text-align: left ;
+}
+#nextart {
+	float: right ;
+	text-align: right ;
+}
+#nextart,#prevart {
+	max-width: 33% ;
+}
