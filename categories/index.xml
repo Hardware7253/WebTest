@@ -18,15 +18,9 @@
 		<description>&lt;p&gt;The WAV player started as a digital audio player (DAP) project. For this purpose I began prototyping a &lt;a href=&#34;https://github.com/Hardware7253/BreadBat&#34;&gt;battery charger&lt;/a&gt; alongside the music player hardware and software. I got as far as ordering a PCB and successfully charging a single-cell battery before realising my music player wouldn’t be good enough to warrant making it portable. When I began work on the music player, I was trying to read blocks from an SD card using SPI, but I found this unreliable despite my implementation looking correct. To skip developing a solid SD card reader, I switched from an STM32F1 chip to an F4 chip so I could use the SDIO hardware peripheral. After switching to SDIO, I could use the more reliable Rust stm32f4xx HAL SDIO module for reading blocks from the SD card. Using this as a foundation, I made my own exFAT module. This module contains an exFAT struct with methods for initialising from the block device&amp;rsquo;s boot sector and listing a directory starting at a given cluster. The RIFF module is pretty barebones; it just defines a RIFF chunk struct and a method to find the next RIFF chunk. This RIFF module is used as the basis for the WAV module. The WAV module just decodes the WAV file format chunk, then finds the data chunk. Another function is used to read blocks from the WAV file&amp;rsquo;s data chunk.&lt;/p&gt;
 &lt;p&gt;The main file sets up the peripherals, then uses a function from the WAV file to fill empty buffers. DMA with double buffering is used for continuous playback, but saying &amp;ldquo;continuous&amp;rdquo; is a bit too generous. The playback sounds terrible. I’ve been trying to figure out why, but it’s been really difficult to debug. Getting double buffering + DMA working has taken long enough, and I’ve become sick of debugging. I’m not too dissatisfied with this outcome because I already learnt a lot about file systems, but I think next time I’d like to do some embedded programming in C/C++ for more support. Besides, I learnt early on that decoding MP3, FLAC, or other formats would be too great a task, hence WAV only. This wouldn’t make a very good product, so completing this project seems pointless.&lt;/p&gt;
 &lt;div class=&#34;gallery&#34;&gt;
-  
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/DAP/Charger.jpg&#34;loading=&#34;lazy&#34;
-    &gt;
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/DAP/Prototype.jpg&#34;loading=&#34;lazy&#34;
-    &gt;
-
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/DAP/Charger.jpg&#34; loading=&#34;lazy&#34;&gt;
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/DAP/Prototype.jpg&#34; loading=&#34;lazy&#34;&gt;
 &lt;/div&gt;
-
-
 </description>
 	</item>
 	
@@ -40,23 +34,11 @@
 &lt;p&gt;The chess bot was initially written in Rust to run on a PC; this was done to make debugging and testing easier. Then, once the bot was done, it could be ported to run on the embedded hardware. To do this, I simply removed the unit tests and features that required heap memory allocation, such as vectors and hashmaps. The rest of the code that runs on the MCU reads the physical board and handles the UI.&lt;/p&gt;
 &lt;p&gt;Each position on the chessboard has its own hall-effect sensor and LED for reading piece positions and indicating moves. To make these 128 inputs/outputs more manageable, the LEDs were connected in a grid. Then the rows and columns had their own multiplexer IC such that the MUX input bits could be used as x and y coordinates. The hall-effect sensors used a similar approach, except each sensor was connected straight to a MUX; no grid was used. The multiplexers for the hall sensors allow any of the 64 sensors to be connected to a single pin which is read by the microcontroller. Finally, the MUX inputs were connected to shift registers to reduce the number of pins required to select an LED or hall sensor.&lt;/p&gt;
 &lt;div class=&#34;gallery&#34;&gt;
-  
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/ElectronicChessBoard/Board.jpg&#34;loading=&#34;lazy&#34;
-    &gt;
-    &lt;video controls 
-    	
-    	
-    	 title=&#34;Algorithm indicating the move it wants to make&#34;
-    	loading=&#34;lazy&#34;
-    &gt;
-    &lt;source src=&#34;https://hardware7253.github.io/WebTest/ElectronicChessBoard/ComputerMove.mp4&#34;&gt;
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/ElectronicChessBoard/Board.jpg&#34; loading=&#34;lazy&#34;&gt;
+    &lt;video controls loading=&#34;lazy&#34; title=&#34;Algorithm indicating the move it wants to make&#34;&gt;
+    	&lt;source src=&#34;https://hardware7253.github.io/WebTest/ElectronicChessBoard/ComputerMove.mp4&#34;&gt;
     &lt;/video&gt;
-    
-
-
 &lt;/div&gt;
-
-
 </description>
 	</item>
 	
@@ -68,13 +50,8 @@
 		<guid>https://hardware7253.github.io/WebTest/6502/</guid>
 		<description>&lt;p&gt;Towards the end of 2024 I made a custom 6502 computer almost identical to the design that Ben Eater used in his videos. The 6502 chip runs at 1MHz and is connected to a ROM, RAM, and VIA chip for programmable IO. For quickly programming the ROM chip, I made my own EEPROM programmer with an Arduino Mega; I utilised port manipulation for this to greatly speed up the writing process. I used an additional script to help me quickly assemble my program and format the resulting hex into an array of bytes to be used by the EEPROM programmer Arduino program. This project served as a proper introduction to assembly programming and low-level computer hardware.&lt;/p&gt;
 &lt;div class=&#34;gallery&#34;&gt;
-  
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Computers/6502.png&#34;loading=&#34;lazy&#34;
-    &gt;
-
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Computers/6502.png&#34; loading=&#34;lazy&#34;&gt;
 &lt;/div&gt;
-
-
 </description>
 	</item>
 	
@@ -86,23 +63,11 @@
 		<guid>https://hardware7253.github.io/WebTest/breadboard_computer/</guid>
 		<description>&lt;p&gt;During 2022 I built an 8-bit computer on breadboards using various digital logic ICs. The design was very similar to the one in Ben Eater&amp;rsquo;s 8-bit computer series, except I upgraded the RAM from 16 addresses to 256. To accommodate this change, the RAM was made to have a 12-bit word, so the upper 4 bits could be used for the instruction, and the lower 8 bits could be used as the operand (needed 8 bits so the new RAM would be addressable). The 4 instruction bits were connected on a separate bus straight to the instruction register and decoding logic; this way the main 8-bit bus didn&amp;rsquo;t have to be expanded when the ALU and registers remained 8-bit. The video below shows the computer running a simple multiplication program for 9 x 13. The values to multiply are stored in two different memory addresses so they can easily be changed.&lt;/p&gt;
 &lt;div class=&#34;gallery&#34;&gt;
-  
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Computers/8Bit.png&#34;loading=&#34;lazy&#34;
-    &gt;
-    &lt;video controls 
-    	
-    	
-    	 title=&#34;Computer running multiplication program (9x13)&#34;
-    	loading=&#34;lazy&#34;
-    &gt;
-    &lt;source src=&#34;https://hardware7253.github.io/WebTest/Computers/8Bit.mp4&#34;&gt;
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Computers/8Bit.png&#34; loading=&#34;lazy&#34;&gt;
+    &lt;video controls loading=&#34;lazy&#34; title=&#34;Computer running multiplication program (9x13)&#34;&gt;
+    	&lt;source src=&#34;https://hardware7253.github.io/WebTest/Computers/8Bit.mp4&#34;&gt;
     &lt;/video&gt;
-    
-
-
 &lt;/div&gt;
-
-
 </description>
 	</item>
 	
@@ -116,17 +81,10 @@
 &lt;p&gt;The clock uses an STM32F103Cx microcontroller for its low cost and wide availability. I generally prefer STM32 microcontrollers because they are widely supported by the Rust community. Naturally, I used Rust to program the software for this project. To power the nixie tubes, I designed a boost converter to convert the 5V USB voltage to 170V. The nixie tubes were multiplexed by connecting their digits (cathodes) together; each digit had its own NPN transistor to effectively connect it to ground. Each tube&amp;rsquo;s anode was connected using a PNP transistor (for high-side switching); only one tube is supposed to be on at a time. Each transistor&amp;rsquo;s base is connected to a shift register&amp;rsquo;s output; this way the entire display can be controlled over an SPI bus. To reduce ghosting on tubes that are supposed to be off, each cathode was connected together with a high-impedance resistor. Each functional block of the design is separated into a different PCB. This way I could reuse one of the components individually for future projects or easily replace a module if it breaks.&lt;/p&gt;
 &lt;p&gt;The case uses laser-cut stainless steel panels, which are secured to an internal 3D-printed frame. The case was designed in OnShape.&lt;/p&gt;
 &lt;div class=&#34;gallery&#34;&gt;
-  
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Urd/Back.jpeg&#34;loading=&#34;lazy&#34;
-    &gt;
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Urd/Front.jpeg&#34;loading=&#34;lazy&#34;
-    &gt;
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Urd/On.jpg&#34;loading=&#34;lazy&#34;
-    &gt;
-
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Urd/Back.jpeg&#34; loading=&#34;lazy&#34;&gt;
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Urd/Front.jpeg&#34; loading=&#34;lazy&#34;&gt;
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Urd/On.jpg&#34; loading=&#34;lazy&#34;&gt;
 &lt;/div&gt;
-
-
 </description>
 	</item>
 	
@@ -141,17 +99,10 @@
 &lt;p&gt;The case was designed in OnShape and features flexible mounting points to give a softer typing feel. There is also a flexible cutout so the MCU reset button can easily be pressed with the case installed.&lt;/p&gt;
 &lt;p&gt;Like many other mechanical keyboards, the Koca58 runs the QMK firmware. The firmware files have been merged into the &lt;a href=&#34;https://github.com/qmk/qmk_firmware/tree/master/keyboards/koca58&#34;&gt;QMK GitHub repo.&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;gallery&#34;&gt;
-  
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Koca58/CaseBottom.png&#34;loading=&#34;lazy&#34;
-    &gt;
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Koca58/CaseTop.png&#34;loading=&#34;lazy&#34;
-    &gt;
-    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Koca58/Prototype.jpg&#34;loading=&#34;lazy&#34;
-    &gt;
-
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Koca58/CaseBottom.png&#34; loading=&#34;lazy&#34;&gt;
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Koca58/CaseTop.png&#34; loading=&#34;lazy&#34;&gt;
+    &lt;img src=&#34;https://hardware7253.github.io/WebTest/Koca58/Prototype.jpg&#34; loading=&#34;lazy&#34;&gt;
 &lt;/div&gt;
-
-
 </description>
 	</item>
 	

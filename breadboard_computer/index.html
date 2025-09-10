@@ -5,7 +5,7 @@
 	<link rel="canonical" href="https://hardware7253.github.io/WebTest/">
 	<link rel='alternate' type='application/rss+xml' title="Project Portfolio RSS" href='/index.xml'>
 	<link rel='stylesheet' type='text/css' href='/style.css'>
-	<link rel="icon" href="/site.ico">
+	<link rel="icon" href="site.ico">
 	<meta name="description" content="An 8-bit computer built on breadboards">
 	<meta name="keywords" content="Personal Projects, Prototypes">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,49 +16,25 @@
 <main>
 <header><h1 id="tag_8-bit Computer">8-bit Computer</h1></header>
 <article>
-
 <div id="backcontainer">
   <a href="/WebTest/">
     <div id="backbtn">&lt; Back</div>
   </a>
 </div>
 
-
 <p>During 2022 I built an 8-bit computer on breadboards using various digital logic ICs. The design was very similar to the one in Ben Eater&rsquo;s 8-bit computer series, except I upgraded the RAM from 16 addresses to 256. To accommodate this change, the RAM was made to have a 12-bit word, so the upper 4 bits could be used for the instruction, and the lower 8 bits could be used as the operand (needed 8 bits so the new RAM would be addressable). The 4 instruction bits were connected on a separate bus straight to the instruction register and decoding logic; this way the main 8-bit bus didn&rsquo;t have to be expanded when the ALU and registers remained 8-bit. The video below shows the computer running a simple multiplication program for 9 x 13. The values to multiply are stored in two different memory addresses so they can easily be changed.</p>
 <div class="gallery">
-  
-    <img src="/Computers/8Bit.png"loading="lazy"
-    >
-    <video controls 
-    	
-    	
-    	 title="Computer running multiplication program (9x13)"
-    	loading="lazy"
-    >
-    <source src="/Computers/8Bit.mp4">
+    <img src="/Computers/8Bit.png" loading="lazy">
+    <video controls loading="lazy" title="Computer running multiplication program (9x13)">
+    	<source src="/Computers/8Bit.mp4">
     </video>
-    
-
-
 </div>
+<div style="clear:both" class=taglist>Related<br><a id="tag_personal projects" href="https://hardware7253.github.io/tags/personal-projects">Personal Projects</a> &middot; <a id="tag_prototypes" href="https://hardware7253.github.io/tags/prototypes">Prototypes</a></div>
 
-
-
-
-
-
-
-
-	<div style="clear:both" class=taglist>Related<br><a id="tag_personal projects" href="https://hardware7253.github.io/tags/personal-projects">Personal Projects</a> &middot; <a id="tag_prototypes" href="https://hardware7253.github.io/tags/prototypes">Prototypes</a></div>
-
-	
 </article>
 </main>
-
 <footer>
-	
-		<a href="/">Return Home</a>
-	
+	<a href="/">Return Home</a>
 </footer>
 
 </body>

@@ -5,7 +5,7 @@
 	<link rel="canonical" href="https://hardware7253.github.io/WebTest/">
 	<link rel='alternate' type='application/rss+xml' title="Project Portfolio RSS" href='/index.xml'>
 	<link rel='stylesheet' type='text/css' href='/style.css'>
-	<link rel="icon" href="/site.ico">
+	<link rel="icon" href="site.ico">
 	<meta name="description" content="A nixie tube clock inspired by the divergence meter from Steins;Gate">
 	<meta name="keywords" content="Personal Projects, Products">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,49 +16,30 @@
 <main>
 <header><h1 id="tag_Nixie Tube Clock">Nixie Tube Clock</h1></header>
 <article>
-
 <div id="backcontainer">
   <a href="/WebTest/">
     <div id="backbtn">&lt; Back</div>
   </a>
 </div>
 
-
 <p>This clock was a one-off gift I made for a friend. It has an RTC to accurately keep track of time, and its time is adjustable using the 3 mechanical switches. One of the toggle switches turns the clock on/off; the other switch toggles an alternate mode. The alternate mode displays one of the worldline numbers from Steins;Gate. The clock also features an anti-poison routing that runs roughly every 10 minutes to prevent nixie tube cathode poisoning. This feature works by cycling all the digits on each nixie tube for about 15 seconds.</p>
 <p>The clock uses an STM32F103Cx microcontroller for its low cost and wide availability. I generally prefer STM32 microcontrollers because they are widely supported by the Rust community. Naturally, I used Rust to program the software for this project. To power the nixie tubes, I designed a boost converter to convert the 5V USB voltage to 170V. The nixie tubes were multiplexed by connecting their digits (cathodes) together; each digit had its own NPN transistor to effectively connect it to ground. Each tube&rsquo;s anode was connected using a PNP transistor (for high-side switching); only one tube is supposed to be on at a time. Each transistor&rsquo;s base is connected to a shift register&rsquo;s output; this way the entire display can be controlled over an SPI bus. To reduce ghosting on tubes that are supposed to be off, each cathode was connected together with a high-impedance resistor. Each functional block of the design is separated into a different PCB. This way I could reuse one of the components individually for future projects or easily replace a module if it breaks.</p>
 <p>The case uses laser-cut stainless steel panels, which are secured to an internal 3D-printed frame. The case was designed in OnShape.</p>
 <div class="gallery">
-  
-    <img src="/Urd/Back.jpeg"loading="lazy"
-    >
-    <img src="/Urd/Front.jpeg"loading="lazy"
-    >
-    <img src="/Urd/On.jpg"loading="lazy"
-    >
-
+    <img src="/Urd/Back.jpeg" loading="lazy">
+    <img src="/Urd/Front.jpeg" loading="lazy">
+    <img src="/Urd/On.jpg" loading="lazy">
 </div>
-
-
-
-
-
 
 	<div class="ghlink">
 		<a href="https://github.com/Hardware7253/OperationUrd">Project GitHub Link</a>
 	</div>
+<div style="clear:both" class=taglist>Related<br><a id="tag_personal projects" href="https://hardware7253.github.io/tags/personal-projects">Personal Projects</a> &middot; <a id="tag_products" href="https://hardware7253.github.io/tags/products">Products</a></div>
 
-
-
-	<div style="clear:both" class=taglist>Related<br><a id="tag_personal projects" href="https://hardware7253.github.io/tags/personal-projects">Personal Projects</a> &middot; <a id="tag_products" href="https://hardware7253.github.io/tags/products">Products</a></div>
-
-	
 </article>
 </main>
-
 <footer>
-	
-		<a href="/">Return Home</a>
-	
+	<a href="/">Return Home</a>
 </footer>
 
 </body>
