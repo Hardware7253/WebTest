@@ -3,9 +3,9 @@
 <head>
 	<title>Electronic Chessboard | Project Portfolio</title>
 	<link rel="canonical" href="https://hardware7253.github.io/WebTest/">
-	<link rel='alternate' type='application/rss+xml' title="Project Portfolio RSS" href='/index.xml'>
-	<link rel='stylesheet' type='text/css' href='/style.css'>
-	<link rel="icon" href="site.ico">
+	<link rel='alternate' type='application/rss+xml' title="Project Portfolio RSS" href="https://hardware7253.github.io/WebTest/index.xml">
+	<link rel='stylesheet' type='text/css' href="https://hardware7253.github.io/WebTest/style.css">
+	<link rel="icon" href="https://hardware7253.github.io/WebTest/site.ico">
 	<meta name="description" content="A chessboard with a built-in chess algorithm to play against">
 	<meta name="keywords" content="Personal Projects, Prototypes">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
 <p>The chess bot was initially written in Rust to run on a PC; this was done to make debugging and testing easier. Then, once the bot was done, it could be ported to run on the embedded hardware. To do this, I simply removed the unit tests and features that required heap memory allocation, such as vectors and hashmaps. The rest of the code that runs on the MCU reads the physical board and handles the UI.</p>
 <p>Each position on the chessboard has its own hall-effect sensor and LED for reading piece positions and indicating moves. To make these 128 inputs/outputs more manageable, the LEDs were connected in a grid. Then the rows and columns had their own multiplexer IC such that the MUX input bits could be used as x and y coordinates. The hall-effect sensors used a similar approach, except each sensor was connected straight to a MUX; no grid was used. The multiplexers for the hall sensors allow any of the 64 sensors to be connected to a single pin which is read by the microcontroller. Finally, the MUX inputs were connected to shift registers to reduce the number of pins required to select an LED or hall sensor.</p>
 <div class="gallery">
-    <img src="/ElectronicChessBoard/Board.jpg" loading="lazy">
+    <img src="https://hardware7253.github.io/ElectronicChessBoard/Board.jpg" loading="lazy">
     <video controls loading="lazy" title="Algorithm indicating the move it wants to make">
     	<source src="/ElectronicChessBoard/ComputerMove.mp4">
     </video>

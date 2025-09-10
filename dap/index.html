@@ -3,9 +3,9 @@
 <head>
 	<title>Digital Audio Player | Project Portfolio</title>
 	<link rel="canonical" href="https://hardware7253.github.io/WebTest/">
-	<link rel='alternate' type='application/rss+xml' title="Project Portfolio RSS" href='/index.xml'>
-	<link rel='stylesheet' type='text/css' href='/style.css'>
-	<link rel="icon" href="site.ico">
+	<link rel='alternate' type='application/rss+xml' title="Project Portfolio RSS" href="https://hardware7253.github.io/WebTest/index.xml">
+	<link rel='stylesheet' type='text/css' href="https://hardware7253.github.io/WebTest/style.css">
+	<link rel="icon" href="https://hardware7253.github.io/WebTest/site.ico">
 	<meta name="description" content="A digital audio player that runs on embedded hardware">
 	<meta name="keywords" content="Personal Projects, Prototypes">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,8 +25,8 @@
 <p>The WAV player started as a digital audio player (DAP) project. For this purpose I began prototyping a <a href="https://github.com/Hardware7253/BreadBat">battery charger</a> alongside the music player hardware and software. I got as far as ordering a PCB and successfully charging a single-cell battery before realising my music player wouldn’t be good enough to warrant making it portable. When I began work on the music player, I was trying to read blocks from an SD card using SPI, but I found this unreliable despite my implementation looking correct. To skip developing a solid SD card reader, I switched from an STM32F1 chip to an F4 chip so I could use the SDIO hardware peripheral. After switching to SDIO, I could use the more reliable Rust stm32f4xx HAL SDIO module for reading blocks from the SD card. Using this as a foundation, I made my own exFAT module. This module contains an exFAT struct with methods for initialising from the block device&rsquo;s boot sector and listing a directory starting at a given cluster. The RIFF module is pretty barebones; it just defines a RIFF chunk struct and a method to find the next RIFF chunk. This RIFF module is used as the basis for the WAV module. The WAV module just decodes the WAV file format chunk, then finds the data chunk. Another function is used to read blocks from the WAV file&rsquo;s data chunk.</p>
 <p>The main file sets up the peripherals, then uses a function from the WAV file to fill empty buffers. DMA with double buffering is used for continuous playback, but saying &ldquo;continuous&rdquo; is a bit too generous. The playback sounds terrible. I’ve been trying to figure out why, but it’s been really difficult to debug. Getting double buffering + DMA working has taken long enough, and I’ve become sick of debugging. I’m not too dissatisfied with this outcome because I already learnt a lot about file systems, but I think next time I’d like to do some embedded programming in C/C++ for more support. Besides, I learnt early on that decoding MP3, FLAC, or other formats would be too great a task, hence WAV only. This wouldn’t make a very good product, so completing this project seems pointless.</p>
 <div class="gallery">
-    <img src="/DAP/Charger.jpg" loading="lazy">
-    <img src="/DAP/Prototype.jpg" loading="lazy">
+    <img src="https://hardware7253.github.io/DAP/Charger.jpg" loading="lazy">
+    <img src="https://hardware7253.github.io/DAP/Prototype.jpg" loading="lazy">
 </div>
 
 	<div class="ghlink">
